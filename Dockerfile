@@ -1,11 +1,13 @@
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /src
 
-COPY ["StealerServer.csproj", "./"]
-RUN dotnet restore "StealerServer.csproj"
+COPY ["StealerServer/StealerServer.csproj", "StealerServer/"]
+RUN dotnet restore "StealerServer/StealerServer.csproj"
+
 
 COPY . .
 
+WORKDIR "/src/StealerServer"
 RUN dotnet publish "StealerServer.csproj" -c Release -o /app/publish
 
 FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS runtime
