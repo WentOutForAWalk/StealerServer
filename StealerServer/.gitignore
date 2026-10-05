@@ -1,0 +1,11 @@
+# Исключаем файлы с реальными секретами и токенами
+appsettings.json
+appsettings.Development.json
+
+# Исключаем папку, куда сервер сохраняет приходящие архивы
+UploadedArchives/
+
+# Исключаем временные файлы компиляции Visual Studio
+.vs/
+bin/
+obj/
